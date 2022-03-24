@@ -81,6 +81,22 @@ a {
   font-family: "karla", serif;
 }
 
+.button:hover {
+  background: #fff !important;
+}
+
+.button:hover * {
+  color: #000 !important;
+}
+
+.navigation ul .plans:hover {
+  background: #000 !important;
+}
+
+.navigation ul .plans:hover * {
+  color: #fff !important;
+}
+
 .button, .wrapper .button {
   border: 2px solid var(--clr--neutral-LightGray);
   padding: var(--mg--size-200) var(--mg--size-500);
@@ -154,6 +170,8 @@ header {
 }
 
 .navigation ul .plans {
+  -webkit-transition: 250ms !important;
+  transition: 250ms !important;
   cursor: pointer;
   padding-block: var(--mg--size-400);
   margin-inline: auto;
@@ -292,6 +310,11 @@ header {
 .hero__txt .sub-title {
   max-width: 65ch;
   opacity: 0.9;
+}
+
+.button {
+  -webkit-transition: 250ms;
+  transition: 250ms;
 }
 
 .button a {
@@ -520,7 +543,11 @@ footer {
   letter-spacing: 0.2rem;
 }
 
-.hero__image--desktop {
+.hero__image--desktop,
+.p-desktop-right,
+.p-desktop-left,
+.p-desktop-how-we-work,
+.p-desktop-footer {
   display: none;
 }
 
@@ -587,14 +614,20 @@ footer {
   }
   .navigation a {
     color: black !important;
-    font-size: var(--txt--size-400) !important;
+    font-size: var(--txt--size-300) !important;
   }
   .plans {
     all: unset !important;
-    border: 1px solid var(--clr--primary-DarkViolet) !important;
+    border: 2px solid var(--clr--primary-DarkViolet) !important;
     padding: var(--mg--size-200) var(--mg--size-400) !important;
+    border: 1px;
+  }
+  .plans a {
+    letter-spacing: 0.2rem !important;
+    word-spacing: 0.2rem !important;
   }
   .p-desktop-right {
+    display: block;
     position: absolute;
     width: clamp(35rem, 19vw, 19vw);
     right: 0;
@@ -603,6 +636,7 @@ footer {
     width: 100%;
   }
   .p-desktop-left {
+    display: block;
     position: absolute;
     bottom: 0;
     -webkit-transform: translateY(50%);
@@ -718,6 +752,7 @@ footer {
     width: 100%;
   }
   .p-desktop-how-we-work {
+    display: block;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -754,6 +789,7 @@ footer {
     padding-inline: calc(min(7vw, var(--mg--size-900) + 4rem));
   }
   .p-desktop-footer {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;

@@ -97,7 +97,19 @@ a {
 }
 
 // ==== Effects ====
+%hover-light {
+  background: #fff !important;
+  * {
+    color: #000 !important;
+  }
+}
 
+%hover-dark {
+  background: #000 !important;
+  * {
+    color: #fff !important;
+  }
+}
 // ==== Animations ====
 
 // ==== Buttons ====
@@ -150,6 +162,10 @@ header {
     margin-top: var(--txt--size-500);
   }
   .plans {
+    &:hover {
+      @extend %hover-dark;
+    }
+    transition: 250ms !important;
     cursor: pointer;
     padding-block: var(--mg--size-400);
     margin-inline: auto;
@@ -251,6 +267,11 @@ header {
 
 .button {
   @extend %buttons;
+  &:hover {
+    @extend %hover-light;
+  }
+  transition: 250ms;
+
   a {
     letter-spacing: 0.2rem;
     word-spacing: 0.2rem;
@@ -396,7 +417,11 @@ footer {
   }
 }
 
-.hero__image--desktop {
+.hero__image--desktop,
+.p-desktop-right,
+.p-desktop-left,
+.p-desktop-how-we-work,
+.p-desktop-footer {
   display: none;
 }
 // ==== Media queries ====
@@ -462,7 +487,8 @@ footer {
 
     a {
       color: black !important;
-      font-size: var(--txt--size-400) !important;
+
+      font-size: var(--txt--size-300) !important;
     }
 
     position: unset;
@@ -470,11 +496,17 @@ footer {
 
   .plans {
     all: unset !important;
-    border: 1px solid var(--clr--primary-DarkViolet) !important;
+    a {
+      letter-spacing: 0.2rem !important;
+      word-spacing: 0.2rem !important;
+    }
+    border: 2px solid var(--clr--primary-DarkViolet) !important;
     padding: var(--mg--size-200) var(--mg--size-400) !important;
+    border: 1px;
   }
 
   .p-desktop-right {
+    display: block;
     position: absolute;
     width: clamp(35rem, 19vw, 19vw);
     img {
@@ -483,6 +515,7 @@ footer {
     right: 0;
   }
   .p-desktop-left {
+    display: block;
     position: absolute;
     bottom: 0;
     transform: translateY(50%);
@@ -573,6 +606,7 @@ footer {
   }
 
   .p-desktop-how-we-work {
+    display: block;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -600,6 +634,7 @@ footer {
   }
 
   .p-desktop-footer {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
